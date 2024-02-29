@@ -29,7 +29,7 @@ h1 {
 }
 
 #gameboard {
-    width: 350px;
+    width: 300px;
     display: flex;
     flex-wrap: wrap;
     margin-top: 50px;
