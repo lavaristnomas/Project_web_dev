@@ -17,73 +17,25 @@ if (isset($_SESSION["user_id"])) {
 <head>
     <meta charset="UTF-8">
     <title>Game Hub</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #75db48; 
-        }
-        h1 {
-            color: #333;
-            text-align: center;
-            margin-top: 20px;
-        }
-	h2 {
-	border-bottom: 1px;
-	border-bottom-style: solid;
+<link rel="stylesheet" href="website.css">
+<style>
+	/* Table Styles for Coming Soon Tab */
+	table {
+    	width: 100%;
+    	border-collapse: collapse;
+    	margin-top: 20px;
+	color: #000000;
 	}
-        /* Styles for the tabs. */
-        .tab {
-            overflow: hidden;
-            border: 1px solid #333;
-            background-color: #333; 
-        }
 
-        /* Styles for the buttons inside the tab. */
-        .tab button {
-            background-color: inherit;
-            float: left;
-            border: none;
-            outline: none;
-            cursor: pointer;
-            padding: 14px 16px;
-            transition: 0.3s;
-            font-size: 17px;
-            color: white;
-        }
+	table, th, td {
+    	border: 5px solid #000000;
+	}
 
-        /* Changes background color of buttons on hover. */
-        .tab button:hover {
-            background-color: #b6d7a8; 
-            color: #333; 
-        }
-
-        /* Active/current tablinks. */
-        .tab button.active {
-            background-color: #24550e; 
-            color: white; 
-        }
-
-        /* Styles for tab content. */
-        .tabcontent {
-            display: none;
-            padding: 20px;
-            border: 1px solid #333;
-            border-top: none;
-            background-color: white;
-            color: #333;
-        }
-
-        a {
-          text-decoration: none;
-          color: white;
-        }
-        a:hover {
-          background-color: #ddd; 
-          color: #333; 
-        }
-    </style>
+	td {
+    	text-align: center;
+    	padding: 10px;
+	}
+</style>
 </head>
 <body>
 <?php if (isset($user)): ?>
@@ -102,58 +54,40 @@ if (isset($_SESSION["user_id"])) {
 <h3>Snake</h3>
 <a href="snake.html">
 <img src="Images/Snake_resized.png" alt="Snake Game" style="width: 150px; height: 150px;"></a>
- 
 <h3>Pong</h3> 
 <a href="pong.html">
     <img src="Images/Pong_resized.png" alt="Pong Game" style="width: 150px; height: 150px;"></a>
-
-  <h3>Tic Tac Toe</h3>
-  <a href="tic-tac-toe.html">
+<h3>Tic Tac Toe</h3>
+<a href="tic-tac-toe.html">
     <img src="Images/TTT_resized.png" alt="Tic Tac Toe Game" style="width: 150px; height: 150px;"></a>
-  
 </div>
 
 <div id="Ratings" class="tabcontent">
   <h2>Ratings</h2>
   <p>Read our expert reviews on the latest video games.</p>
 <script src="rating.js" defer></script>
-<style>
-  .image-container {
-    margin-bottom: 20px;
-  }
-  .reaction-button {
-    cursor: pointer;
-    margin-right: 10px;
-  }
-  .reaction-count {
-    display: inline-block;
-    min-width: 20px;
-    margin-right: 20px;
-  }
-</style>
-<body>
 <div class="image-container">
   <h3>Pong</h3>
   <img src="Images/Pong_resized.png" alt="Pong" style="width: 150px; height: 150px;"/><br>
-  <img src="Images/Thumbs up.png" alt="Thumbs Up" class="reaction-button" onclick="upvote('Pong')" />
+  <img src="Images/Thumbs up.png" alt="Thumbs Up" class="reaction-button" onclick="upvote('Pong')" style="width: 50px; height: 50px;"/>
   <span id="Pong-upvote" class="reaction-count">0</span>
-  <img src="Images/Thumbs down.png" alt="Thumbs Down" class="reaction-button" onclick="downvote('Pong')" />
+  <img src="Images/Thumbs down.png" alt="Thumbs Down" class="reaction-button" onclick="downvote('Pong')" style="width: 50px; height: 50px;"/>
   <span id="Pong-downvote" class="reaction-count">0</span>
 </div>
 <div class="image-container">
   <h3>Snake</h3>
   <img src="Images/Snake_resized.png" alt="Snake" style="width: 150px; height: 150px;"/><br>
-  <img src="Images/Thumbs up.png" alt="Thumbs Up" class="reaction-button" onclick="upvote('Snake')" />
+  <img src="Images/Thumbs up.png" alt="Thumbs Up" class="reaction-button" onclick="upvote('Snake')" style="width: 50px; height: 50px;"/>
   <span id="Snake-upvote" class="reaction-count">0</span>
-  <img src="Images/Thumbs down.png" alt="Thumbs Down" class="reaction-button" onclick="downvote('Snake')" />
+  <img src="Images/Thumbs down.png" alt="Thumbs Down" class="reaction-button" onclick="downvote('Snake')" style="width: 50px; height: 50px;"/>
   <span id="Snake-downvote" class="reaction-count">0</span>
 </div>
 <div class="image-container">
   <h3>Tic Tac Toe</h3>
   <img src="Images/TTT_resized.png" alt="Tic Tac Toe" style="width: 150px; height: 150px;"/><br>
-  <img src="Images/Thumbs up.png" alt="Thumbs Up" class="reaction-button" onclick="upvote('TTT')" />
+  <img src="Images/Thumbs up.png" alt="Thumbs Up" class="reaction-button" onclick="upvote('TTT')" style="width: 50px; height: 50px;" />
   <span id="TTT-upvote" class="reaction-count">0</span>
-  <img src="Images/Thumbs down.png" alt="Thumbs Down" class="reaction-button" onclick="downvote('TTT')" />
+  <img src="Images/Thumbs down.png" alt="Thumbs Down" class="reaction-button" onclick="downvote('TTT')" style="width: 50px; height: 50px;"/>
   <span id="TTT-downvote" class="reaction-count">0</span>
 </div>
 </div>
@@ -161,10 +95,15 @@ if (isset($_SESSION["user_id"])) {
 <div id="ComingSoon" class="tabcontent">
   <h2>Coming Soon</h2>
   <p>Get excited for these upcoming game releases!</p>
-<img src="Images/Gears of War 6.webp" alt="Gears of War 6" style="width: 150px; height: 150px;">
-<img src="Images/halo-wars-3.avif" alt="Halo Wars 3" style="width: 150px; height: 150px;">
-<img src="Images/Halo 7.jpg" alt="Halo 7" style="width: 150px; height: 150px;">
+  <table>
+    <tr>
+      <td><img src="Images/Gears of War 6.webp" alt="Gears of War 6" style="width: 150px; height: 150px;"></td>
+      <td><img src="Images/halo-wars-3.avif" alt="Halo Wars 3" style="width: 150px; height: 150px;"></td>
+      <td><img src="Images/Halo 7.jpg" alt="Halo 7" style="width: 150px; height: 150px;"></td>
+    </tr>
+  </table>
 </div>
+
 
 <script>
 function openTab(evt, sectionName) {
