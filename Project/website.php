@@ -1,4 +1,17 @@
+<?php 
+session_start();
 
+if (isset($_SESSION["user_id"])) {
+
+  $mysqli = require __DIR__ ."/database.php";
+
+  $sql = "SELECT * FROM user WHERE id = {$_SESSION["user_id"]}";
+
+  $result = $mysqli->query($sql);
+
+  $user = $result->fetch_assoc();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,15 +70,25 @@
             background-color: white;
             color: #333;
         }
+        a {
+          text-decoration: none;
+          color: white;
+        }
+        a:hover {
+          background-color: #ddd; 
+          color: #333; 
+        }
     </style>
 </head>
 <body>
-
+<?php if (isset($user)): ?>
 <h2>Gaming Website</h2>
 <div class="tab">
   <button class="tablinks" onclick="openTab(event, 'Games')">Games</button>
   <button class="tablinks" onclick="openTab(event, 'Reviews')">Reviews</button>
   <button class="tablinks" onclick="openTab(event, 'ComingSoon')">Coming Soon</button>
+  <button class="tablinks" style="float: right; text-decoration: none;"><a href="./logout.php">Logout</a></button>
+  <button class="tablinks" style="float: right;"><?= htmlspecialchars($user["username"])?></button>
 </div>
 
 <div id="Games" class="tabcontent">
@@ -114,6 +137,7 @@ document.addEventListener("DOMContentLoaded", function() {
   document.getElementsByClassName("tablinks")[0].click();
 });
 </script>
-
+<?php else: header("Location: login.php") ?>
+<?php endif; ?>
 </body>
 </html>

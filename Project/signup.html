@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./signup.css">
+    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js" defer></script>
+    <script src="./validate.js" defer></script>
     <title>Sign up</title>
 </head>
 <body>
@@ -12,28 +14,29 @@
     </div>
     <div class="container">
         <h1>Sign up</h1>
-        <form action="process-signup.php" method="post">
+        <form action="process-signup.php" method="post" id="signup">
             <div>
                 <label for="username">Username</label>
-                <input type="text" id="username" name="username">
+                <input type="text" id="username" name="username" autocomplete="off">
             </div>
             <div>
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email">
+                <input type="email" id="email" name="email" autocomplete="off">
             </div>
             <div>
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password">
+                <input type="password" id="password" name="password" autocomplete="off">
             </div>
             <div>
                 <label for="verify-password">Verify Password</label>
-                <input type="password" id="verify-password" name="verify-password">
+                <input type="password" id="verify-password" name="verify-password" autocomplete="off">
             </div>
             <button>Sign Up</button>
         </form>
+        <p>Already have an account? <a href="./login.php" style="font-size: 16px;">Log in!</a></p>
     </div>
     <div class="footer">
-        Copyright &copy 2024
+        Copyright &copy GW 2024
     </div>
 </body>
 </html>
