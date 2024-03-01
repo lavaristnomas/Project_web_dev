@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password">
             </div>
-            <button>Log in</button>
+            <button>Submit</button>
         </form>
         <p>Don't have an account? <a href="./signup.html" style="font-size: 16px;">Sign up!</a></p>
         <?php if ($is_invalid): ?>
