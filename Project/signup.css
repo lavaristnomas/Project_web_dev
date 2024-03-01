@@ -31,12 +31,12 @@ form{
 div {
     display: flex;
     justify-content: space-between;
-    min-width: 350px;
 }
 label {
     color: #333;
     font-weight: bold;
     align-self: center;
+    margin-right: 15px;
 }
 input {
     color: #333;
