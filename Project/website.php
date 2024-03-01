@@ -85,7 +85,7 @@ if (isset($_SESSION["user_id"])) {
 <h2>Gaming Website</h2>
 <div class="tab">
   <button class="tablinks" onclick="openTab(event, 'Games')">Games</button>
-  <button class="tablinks" onclick="openTab(event, 'Ratings')">Reviews</button>
+  <button class="tablinks" onclick="openTab(event, 'Ratings')">Ratings</button>
   <button class="tablinks" onclick="openTab(event, 'ComingSoon')">Coming Soon</button>
   <button class="tablinks" style="float: right; text-decoration: none;"><a href="./logout.php">Logout</a></button>
   <button class="tablinks" style="float: right;"><?= htmlspecialchars($user["username"])?></button>
@@ -108,8 +108,8 @@ if (isset($_SESSION["user_id"])) {
   <p>Click on the image to play the Tic Tac Toe game.</p>
 </div>
 
-<div id="Reviews" class="tabcontent">
-  <h3>Reviews</h3>
+<div id="Ratings" class="tabcontent">
+  <h3>Ratings</h3>
   <p>Read our expert reviews on the latest video games.</p>
 </div>
 
