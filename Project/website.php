@@ -16,19 +16,23 @@ if (isset($_SESSION["user_id"])) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Gaming Website</title>
+    <title>Game Hub</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #ADD8E6; 
+            background-color: #75db48; 
         }
-        h2 {
+        h1 {
             color: #333;
             text-align: center;
             margin-top: 20px;
         }
+	h2 {
+	border-bottom: 1px;
+	border-bottom-style: solid;
+	}
         /* Styles for the tabs. */
         .tab {
             overflow: hidden;
@@ -51,13 +55,13 @@ if (isset($_SESSION["user_id"])) {
 
         /* Changes background color of buttons on hover. */
         .tab button:hover {
-            background-color: #ddd; 
+            background-color: #b6d7a8; 
             color: #333; 
         }
 
         /* Active/current tablinks. */
         .tab button.active {
-            background-color: #007bff; 
+            background-color: #24550e; 
             color: white; 
         }
 
@@ -70,6 +74,7 @@ if (isset($_SESSION["user_id"])) {
             background-color: white;
             color: #333;
         }
+
         a {
           text-decoration: none;
           color: white;
@@ -82,7 +87,7 @@ if (isset($_SESSION["user_id"])) {
 </head>
 <body>
 <?php if (isset($user)): ?>
-<h2>Gaming Website</h2>
+<h1>Game Hub</h1>
 <div class="tab">
   <button class="tablinks" onclick="openTab(event, 'Games')">Games</button>
   <button class="tablinks" onclick="openTab(event, 'Ratings')">Ratings</button>
@@ -92,30 +97,73 @@ if (isset($_SESSION["user_id"])) {
 </div>
 
 <div id="Games" class="tabcontent">
- <h3>Games</h3>
-  <p>Discover the latest and greatest games here.</p>
+ <h2>Games</h2>
+  <p>Discover the latest and greatest games here!</p>
+<h3>Snake</h3>
 <a href="snake.html">
-    <img src="Images/Snake.png" alt="Snake Game" style="width: 100px; height: auto;">
-  </a>
-  <p>Click on the image to play the Snake game.</p>
+<img src="Images/Snake_resized.png" alt="Snake Game" style="width: 150px; height: 150px;"></a>
+ 
+<h3>Pong</h3> 
 <a href="pong.html">
-    <img src="Images/Pong.png" alt="Pong Game" style="width: 100px; height: auto;">
-  </a>
-  <p>Click on the image to play the Pong game.</p>
+    <img src="Images/Pong_resized.png" alt="Pong Game" style="width: 150px; height: 150px;"></a>
+
+  <h3>Tic Tac Toe</h3>
   <a href="tic-tac-toe.html">
-    <img src="Images/TTT.png" alt="Tic Tac Toe Game" style="width: 100px; height: auto;">
-  </a>
-  <p>Click on the image to play the Tic Tac Toe game.</p>
+    <img src="Images/TTT_resized.png" alt="Tic Tac Toe Game" style="width: 150px; height: 150px;"></a>
+  
 </div>
 
 <div id="Ratings" class="tabcontent">
-  <h3>Ratings</h3>
+  <h2>Ratings</h2>
   <p>Read our expert reviews on the latest video games.</p>
+<script src="rating.js" defer></script>
+<style>
+  .image-container {
+    margin-bottom: 20px;
+  }
+  .reaction-button {
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  .reaction-count {
+    display: inline-block;
+    min-width: 20px;
+    margin-right: 20px;
+  }
+</style>
+<body>
+<div class="image-container">
+  <h3>Pong</h3>
+  <img src="Images/Pong_resized.png" alt="Pong" style="width: 150px; height: 150px;"/><br>
+  <img src="Images/Thumbs up.png" alt="Thumbs Up" class="reaction-button" onclick="upvote('Pong')" />
+  <span id="Pong-upvote" class="reaction-count">0</span>
+  <img src="Images/Thumbs down.png" alt="Thumbs Down" class="reaction-button" onclick="downvote('Pong')" />
+  <span id="Pong-downvote" class="reaction-count">0</span>
+</div>
+<div class="image-container">
+  <h3>Snake</h3>
+  <img src="Images/Snake_resized.png" alt="Snake" style="width: 150px; height: 150px;"/><br>
+  <img src="Images/Thumbs up.png" alt="Thumbs Up" class="reaction-button" onclick="upvote('Snake')" />
+  <span id="Snake-upvote" class="reaction-count">0</span>
+  <img src="Images/Thumbs down.png" alt="Thumbs Down" class="reaction-button" onclick="downvote('Snake')" />
+  <span id="Snake-downvote" class="reaction-count">0</span>
+</div>
+<div class="image-container">
+  <h3>Tic Tac Toe</h3>
+  <img src="Images/TTT_resized.png" alt="Tic Tac Toe" style="width: 150px; height: 150px;"/><br>
+  <img src="Images/Thumbs up.png" alt="Thumbs Up" class="reaction-button" onclick="upvote('TTT')" />
+  <span id="TTT-upvote" class="reaction-count">0</span>
+  <img src="Images/Thumbs down.png" alt="Thumbs Down" class="reaction-button" onclick="downvote('TTT')" />
+  <span id="TTT-downvote" class="reaction-count">0</span>
+</div>
 </div>
 
 <div id="ComingSoon" class="tabcontent">
-  <h3>Coming Soon</h3>
-  <p>Get excited for the upcoming game releases.</p>
+  <h2>Coming Soon</h2>
+  <p>Get excited for these upcoming game releases!</p>
+<img src="Images/Gears of War 6.webp" alt="Gears of War 6" style="width: 150px; height: 150px;">
+<img src="Images/halo-wars-3.avif" alt="Halo Wars 3" style="width: 150px; height: 150px;">
+<img src="Images/Halo 7.jpg" alt="Halo 7" style="width: 150px; height: 150px;">
 </div>
 
 <script>

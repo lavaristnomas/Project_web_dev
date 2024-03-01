@@ -2,18 +2,19 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #ADD8E6;
+    background-color: #75db48;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
+
 .banner, .footer {
     display: flex;
     justify-content: center;
     min-height: 50px;
     align-items: center;
-    background-color: #79adbe;
+    background-color: #24550e;
 }
 .container {
     display: flex;
@@ -21,9 +22,14 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 h1 {
-    color: #333;
+color: #ffffff;
+background-color: #24550e;
+padding: 5px;
+
 }
+
 form{
     display: flex;
     flex-direction: column;
@@ -32,12 +38,18 @@ div {
     display: flex;
     justify-content: space-between;
 }
+
 label {
     color: #333;
     font-weight: bold;
     align-self: center;
     margin-right: 15px;
+    border: 1px solid black; /* Creates a black border */
+    padding: 5px; 
+    display: inline-block;
+    margin-bottom: 5px; 
 }
+
 input {
     color: #333;
     background-color: #efefef;
@@ -49,26 +61,34 @@ input {
     min-width: 190px;
 }
 button {
-    color: #333;
+    color: #ffffff;
     font-weight: bold;
-    background-color: #efefef;
+    background-color: #24550e;
     margin-bottom: 6px;
     padding: 10px;
     border: none;
     border-radius: 6px;
     outline: none;
 }
+
 button:hover {
     cursor: pointer;
-    background-color: #c2c2c2;
+    background-color: #b6d7a8;
 }
 a {
     text-decoration: none;
     font-size: 20px;
-    color: #333;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #24550e;
+    margin-bottom: 6px;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    outline: none;
 }
 a:visited {
-    color: #333;
+    color: #0000ff;
 }
 a:hover {
     cursor: pointer;
