@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <div class="banner">
-        <h1>Welcome to Gaming Website</h1>
+        <h1>Welcome to the Game Hub!</h1>
     </div>
     <div class="container">
         <h1>Log in</h1>

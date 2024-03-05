@@ -1,4 +1,5 @@
 <?php 
+mysqli_report(MYSQLI_REPORT_OFF);
 session_start();
 
 if (isset($_SESSION["user_id"])) {
@@ -10,6 +11,30 @@ if (isset($_SESSION["user_id"])) {
   $result = $mysqli->query($sql);
 
   $user = $result->fetch_assoc();
+
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $mysqli = require __DIR__ ."/database.php";
+    $sql = "INSERT INTO reviews (username, game, up_vote) VALUES (?, ?, ?)";
+
+    $stmt = $mysqli->stmt_init();
+
+    if (! $stmt->prepare($sql)) {
+        die("SQL error: ".$mysqli->error);
+    }
+
+    $username = $user["username"];
+    
+    if ($_POST["pong-upvote"] == "pong-upvote"){
+      $game = "pong";
+
+      $vote = 1;
+
+      $stmt->bind_param("sss", $username, $game, $vote);
+      
+      $stmt->execute();
+    }
+  
+  }
 }
 ?>
 <!DOCTYPE html>
@@ -69,26 +94,32 @@ if (isset($_SESSION["user_id"])) {
 <div class="image-container">
   <h3>Pong</h3>
   <img src="Images/Pong_resized.png" alt="Pong" style="width: 150px; height: 150px;"/><br>
-  <img src="Images/Thumbs up.png" alt="Thumbs Up" class="reaction-button" onclick="upvote('Pong')" style="width: 50px; height: 50px;"/>
-  <span id="Pong-upvote" class="reaction-count">0</span>
-  <img src="Images/Thumbs down.png" alt="Thumbs Down" class="reaction-button" onclick="downvote('Pong')" style="width: 50px; height: 50px;"/>
-  <span id="Pong-downvote" class="reaction-count">0</span>
+  <form method="post">
+  <input type="image" id="pong-upvote" name="pong-upvote" img src="Images/Thumbs up.png" alt="Thumbs Up" class="reaction-button" style="width: 50px; height: 50px;"/>
+  <span id="pong-upvote" class="reaction-count">0</span>
+  <input type="image" id="pong-downvote" name="pong-downvote" img src="Images/Thumbs down.png" alt="Thumbs Down" class="reaction-button" style="width: 50px; height: 50px;"/>
+  <span id="pong-downvote" class="reaction-count">0</span>
+  </form>
 </div>
 <div class="image-container">
   <h3>Snake</h3>
   <img src="Images/Snake_resized.png" alt="Snake" style="width: 150px; height: 150px;"/><br>
-  <img src="Images/Thumbs up.png" alt="Thumbs Up" class="reaction-button" onclick="upvote('Snake')" style="width: 50px; height: 50px;"/>
-  <span id="Snake-upvote" class="reaction-count">0</span>
-  <img src="Images/Thumbs down.png" alt="Thumbs Down" class="reaction-button" onclick="downvote('Snake')" style="width: 50px; height: 50px;"/>
-  <span id="Snake-downvote" class="reaction-count">0</span>
+  <form method="post">
+  <input type="image" id="snake-upvote" name="snake-upvote" img src="Images/Thumbs up.png" alt="Thumbs Up" class="reaction-button" style="width: 50px; height: 50px;"/>
+  <span id="snake-upvote" class="reaction-count">0</span>
+  <input type="image" id="snake-downvote" name="snake-downvote" img src="Images/Thumbs down.png" alt="Thumbs Down" class="reaction-button" style="width: 50px; height: 50px;"/>
+  <span id="snake-downvote" class="reaction-count">0</span>
+  </form>
 </div>
 <div class="image-container">
   <h3>Tic Tac Toe</h3>
   <img src="Images/TTT_resized.png" alt="Tic Tac Toe" style="width: 150px; height: 150px;"/><br>
-  <img src="Images/Thumbs up.png" alt="Thumbs Up" class="reaction-button" onclick="upvote('TTT')" style="width: 50px; height: 50px;" />
-  <span id="TTT-upvote" class="reaction-count">0</span>
-  <img src="Images/Thumbs down.png" alt="Thumbs Down" class="reaction-button" onclick="downvote('TTT')" style="width: 50px; height: 50px;"/>
-  <span id="TTT-downvote" class="reaction-count">0</span>
+  <form method="post">
+  <input type="image" id="ttt-upvote" name="ttt-upvote" img src="Images/Thumbs up.png" alt="Thumbs Up" class="reaction-button" style="width: 50px; height: 50px;"/>
+  <span id="ttt-upvote" class="reaction-count">0</span>
+  <input type="image" id="ttt-downvote" name="ttt-downvote" img src="Images/Thumbs down.png" alt="Thumbs Down" class="reaction-button" style="width: 50px; height: 50px;"/>
+  <span id="ttt-downvote" class="reaction-count">0</span>
+  </form>
 </div>
 </div>
 
