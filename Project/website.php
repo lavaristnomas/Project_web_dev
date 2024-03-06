@@ -64,7 +64,7 @@ if (isset($_SESSION["user_id"])) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Game Hub</title>
+    <title>The Game Hub</title>
 <link rel="stylesheet" href="website.css">
 <style>
 	/* Table Styles for Coming Soon Tab */
@@ -87,7 +87,7 @@ if (isset($_SESSION["user_id"])) {
 </head>
 <body>
 <?php if (isset($user)): ?>
-<h1>Game Hub</h1>
+<h1>The Game Hub</h1>
 <div class="tab">
   <button class="tablinks" onclick="openTab(event, 'Games')">Games</button>
   <button class="tablinks" onclick="openTab(event, 'Ratings')">Ratings</button>

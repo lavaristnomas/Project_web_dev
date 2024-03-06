@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <div class="banner">
-        <h1>Welcome to the Game Hub!</h1>
+        <h1>Welcome to The Game Hub!</h1>
     </div>
     <div class="container">
         <h1>Log in</h1>
@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <?php endif; ?>
     </div>
     <div class="footer">
-        Copyright &copy GW 2024
+        Copyright &copy TGH 2024
     </div>
 </body>
 </html>
