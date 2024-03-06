@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <button>Submit</button>
         </form>
-        <p>Don't have an account? <a href="./signup.html" style="font-size: 16px;">Sign up!</a></p>
+        <p>Don't have an account? <a href="./index.html" style="font-size: 16px;">Sign up!</a></p>
         <?php if ($is_invalid): ?>
             <p>Invalid login. Please try again.</p>
         <?php endif; ?>
