@@ -112,7 +112,7 @@ if (isset($_SESSION["user_id"])) {
 
 <div id="Ratings" class="tabcontent">
   <h2>Ratings</h2>
-  <p>Here are our curent reviews on our latest games.</p>
+  <p>Here are our current ratings on our latest games.</p>
 <script src="rating.js" defer></script>
 <div class="image-container">
   <h3>Pong</h3>
